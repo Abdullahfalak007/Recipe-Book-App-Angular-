@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Recipe Book</title>
+  </head>
+  <body>
+    <header>
+      <h1>My Recipe Book</h1>
+    </header>
+    <section id="recipe-form">
+      <input type="text" id="recipe-name" placeholder="Recipe Name" required />
+      <textarea
+        id="recipe-instructions"
+        placeholder="Recipe Instructions"
+        required
+      ></textarea>
+      <button (click)="addRecipe()">Add Recipe</button>
+    </section>
+    <section id="recipes-list">
+      <ul>
+        <li *ngFor="let recipe of recipes">
+          <div>{{ recipe.name }}: {{ recipe.instructions }}</div>
+          <div class="buttons">
+            <button (click)="deleteRecipe(recipe.id)">Delete</button>
+            <button (click)="editRecipe(recipe.id)">Edit</button>
+          </div>
+        </li>
+      </ul>
+    </section>
+  </body>
+</html>
